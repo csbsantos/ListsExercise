@@ -1,15 +1,20 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        ToDoList toDoListA= new ToDoList();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+
+        ToDoItem toDoItem1= new ToDoItem("make bed", "fold sheet", true, 2);
+        ToDoItem toDoItem2= new ToDoItem("go to work", "complete your mission", false, 1);
+        ToDoItem toDoItem3= new ToDoItem("walk your dog", "go for a ride with him", false, 3);
+        ToDoItem toDoItem4= new ToDoItem("go to the toilet", "no description needed", true, 1);
+
+//    toDoListA.addTask(toDoItem1);
+//   //toDoListA.getAllTasks();
+//    toDoListA.removeTask(toDoItem2);
+
+//    toDoListA.addTask(toDoItem1);
+//    toDoListA.removeTask(toDoItem1);
+//
+
     }
-}
+
