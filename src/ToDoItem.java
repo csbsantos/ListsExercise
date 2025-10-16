@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class ToDoItem {
 
     private String task;
@@ -43,5 +45,22 @@ public class ToDoItem {
 
     public void setTask(String task) {
         this.task = task;
+    }
+
+    Comparator<ToDoItem> taskComparator = new Comparator<ToDoItem>() {
+        @Override
+        public int compare(ToDoItem o1, ToDoItem o2) {
+            return 0;
+        }
+    };
+
+    @Override
+    public String toString() {
+        return "ToDoItem{" +
+                "task='" + task + '\'' +
+                ", descriptionTask='" + descriptionTask + '\'' +
+                ", completionTask=" + completionTask +
+                ", priorityLevel=" + priorityLevel +
+                '}';
     }
 }
