@@ -2,11 +2,22 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class ToDoList {
+public class ToDoList  {
 
-    Queue <ToDoItem> toDoList1= new PriorityQueue<ToDoItem>();
+    private int taskComparator;
+    Queue <ToDoItem> toDoList1= new PriorityQueue<ToDoItem>( new taskComparator());
     ToDoItem toDoItem= new ToDoItem("do homework", "do all the exercises", false, 2 );
     Iterator <ToDoItem> iterator1= toDoList1.iterator();
+
+    public ToDoList(int taskComparator, Queue<ToDoItem> toDoList1, ToDoItem toDoItem) {
+        this.taskComparator = taskComparator;
+        this.toDoList1 = toDoList1;
+        this.toDoItem = toDoItem;
+    }
+
+    public ToDoList() {
+
+    }
 
     public void addTask (ToDoItem toDoItem){
         if (!toDoList1.contains(toDoItem)) {
@@ -24,19 +35,20 @@ public class ToDoList {
         }
         return "";
     }
-    public ToDoItem getNextTask (){
-        if (iterator1.hasNext()){
-            return iterator1.next();
-        }
-        return null;
+    public ToDoItem getNextTask () {
+        toDoList1.poll();
+        return toDoItem;
     }
-   public ToDoItem getAllTasks (){
-        for (ToDoItem temp: toDoList1){
-            System.out.println(temp);
 
-        }
-        return null;
-    }
+   public void getAllTasks (){
+       for (ToDoItem temp: toDoList1){
+           System.out.println(temp);
+       }
+          }
+//        for (ToDoItem temp: toDoList1){
+//            System.out.println(temp);
+
+
     public ToDoItem getIncompleteTasks() {
         for (ToDoItem temp2 : toDoList1) {
             if (!temp2.isCompletionTask()) {
@@ -70,4 +82,17 @@ public class ToDoList {
             }
             return;
             }
+            public int getListSize (){
+        return toDoList1.size();
+            }
+
+    @Override
+    public String toString() {
+        return "ToDoList{" +
+                "taskComparator=" + taskComparator +
+                ", toDoList1=" + toDoList1 +
+                ", toDoItem=" + toDoItem +
+                ", iterator1=" + iterator1 +
+                '}';
     }
+}
